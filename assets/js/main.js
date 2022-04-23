@@ -73,6 +73,8 @@
 
 	// Parallax.
 	// Disabled on IE (choppy scrolling) and mobile platforms (poor performance).
+		var loaded = [false, false, false]
+	
 		if (browser.name == 'ie'
 		||	browser.mobile) {
 
@@ -151,7 +153,8 @@
 					// Use main <img>'s src as this spotlight's background.
 					//	$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');			
 					
-					if($this.find('.image.main > img#apodPic').length){
+					if($this.find('.image.main > img#apodPic').length && !loaded[0]){
+						loaded[0] = true
 						//element one ----------nasa astronomy picture of the day---------
 						console.log("element one")
 						fetch("https://api.nasa.gov/planetary/apod?api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI")
@@ -165,7 +168,8 @@
 						.catch(err => {
 							console.log(`error ${err}`)
 						})
-					}else if($this.find('.image.main > img#marsPic').length){
+					}else if($this.find('.image.main > img#marsPic').length && !loaded[1]){
+						loaded[1] = true
 						//element two ------Picures of Mars from Curiosity--------
 						console.log("element two")
 						fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI")
@@ -180,7 +184,8 @@
 						.catch(err => {
 							console.log(`error ${err}`)
 						})
-					}else if($this.find('.image.main > img#hubble').length){
+					}else if($this.find('.image.main > img#hubble').length && !loaded[2]){
+						loaded[2] = true
 						//element three ------Hubble Telescope keyword: nebula--------
 						console.log("element three")
 						fetch(`https://hubblesite.azurewebsites.net/images/tags/nebula`)
@@ -208,7 +213,9 @@
 						})
 					}else{
 						//everything else
-						console.log("everything else")
+						//for some reason this function is called twice for each spotlight class.  Since I have prevented the API calls being made
+						//twice this will get hit three times from the avoided duplicate API calls.  It doesn't do anything.
+						console.log("everything else") 
 						$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');
 					}
 
