@@ -15,3 +15,21 @@ fetch(`https://api.ipgeolocation.io/astronomy?apiKey=3c8e3ad3bc4146dc906419930fe
 .catch(err => {
     console.log(`error ${err}`)
 })
+
+//------------Mars Weather--------------
+//https://maas2.apollorion.com
+fetch(`https://api.maas2.apollorion.com/`)
+.then(res => res.json())
+.then (data => {      
+    document.querySelector("#marsWeather").innerHTML = `Weather on Mars`
+    document.querySelector("#atmoOpacity").innerHTML = `Current Weather: ${data.atmo_opacity}`
+    document.querySelector("#minTemp").innerHTML = `Min temp: ${data.min_temp}c`
+    document.querySelector("#maxTemp").innerHTML = `Max temp: ${data.max_temp}c`
+    document.querySelector("#season").innerHTML = `Current Season: ${data.season}`
+    document.querySelector("#sunriseMars").innerHTML = `Sunrise: ${data.sunrise}`
+    document.querySelector("#sunsetMars").innerHTML = `Sunset: ${data.sunset}`
+    console.log("Mars Weather Loaded")
+})
+.catch(err => {
+    console.log(`error ${err}`)
+})
