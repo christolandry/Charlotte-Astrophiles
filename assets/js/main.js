@@ -165,12 +165,27 @@
 						.catch(err => {
 							console.log(`error ${err}`)
 						})
+					}else if($this.find('.image.main > img#marsPic').length){
+						//element two ------Picures of Mars from Curiosity--------
+						console.log("element two")
+						fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI")
+						.then(res => res.json())
+						.then (data => {
+							let photo = data.photos[Math.floor(Math.random() * data.photos.length)]                       
+							$this.css('background-image', 'url("' + photo.img_src + '")');
+							document.querySelector("#marsTitle").innerHTML = `A shot of Mars from the ${photo.rover.name} rover`
+							document.querySelector("#marsSubTitle").innerHTML = `This photo as taken on ${photo.earth_date} from the ${photo.camera.full_name}`
+							console.log("Mars photo loaded")
+						})
+						.catch(err => {
+							console.log(`error ${err}`)
+						})
 					}else{
 						//everything else
 						console.log("everything else")
 						$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');
 					}
-					
+
 					// Side-specific scrollex tweaks.
 						if ($this.hasClass('top')) {
 
