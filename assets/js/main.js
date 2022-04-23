@@ -149,8 +149,28 @@
 					var top, bottom, mode;
 
 					// Use main <img>'s src as this spotlight's background.
+					//	$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');			
+					
+					if($this.find('.image.main > img#apodPic').length){
+						//element one ----------nasa astronomy picture of the day---------
+						console.log("element one")
+						fetch("https://api.nasa.gov/planetary/apod?api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI")
+						.then(res => res.json())
+						.then (data => {
+							$this.css('background-image', 'url("' + data.hdurl + '")');
+							document.querySelector("#apodTitle").innerHTML = data.title
+							document.querySelector("#apodDescription").innerHTML = data.explanation
+							console.log("NASA APOD loaded")
+						})
+						.catch(err => {
+							console.log(`error ${err}`)
+						})
+					}else{
+						//everything else
+						console.log("everything else")
 						$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');
-
+					}
+					
 					// Side-specific scrollex tweaks.
 						if ($this.hasClass('top')) {
 
