@@ -4109,3 +4109,34 @@ input, select, textarea {
 					}
 
 	}
+
+/* Additions by Christo */
+.vertCenter{
+	display: flex;
+	align-items: center;
+}
+
+#charlotte{
+	background-image: url("../../images/charlotte.jpg");
+	background-position: center;
+	background-size: cover;
+}
+
+#charlotte .container{
+	background-color: rgba(0, 0, 0, 0.60);
+	padding: 10px 0;
+}
+
+
+.marsWeatherHeading{
+	padding-top: 30px;
+}
+
+.marsWeather{
+	list-style: none;
+	padding-left: 0;
+}
+
+.marsWeather li{
+	padding-top: 5px;
+}
