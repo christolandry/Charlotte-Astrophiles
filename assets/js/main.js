@@ -180,6 +180,32 @@
 						.catch(err => {
 							console.log(`error ${err}`)
 						})
+					}else if($this.find('.image.main > img#hubble').length){
+						//element three ------Hubble Telescope keyword: nebula--------
+						console.log("element three")
+						fetch(`https://hubblesite.azurewebsites.net/images/tags/nebula`)
+						.then(res => res.json())
+						.then (data => {       
+							let photo, maxRes = 0, i = 0;
+							while(!maxRes){
+								photo = data[Math.floor(Math.random() * data.length)]     
+								for (i = 0; i < photo.imgWithRes.length; i++){
+									let currentRes = photo.imgWithRes[i][1].split(" ")[0]
+									if(currentRes >= 2000 && currentRes < 4500){
+										maxRes = currentRes
+										break
+									} 
+								}
+							}
+							$this.css('background-image', 'url("' + photo.imgWithRes[i][0] + '")');
+							document.querySelector("#hubbleTitle").innerHTML = photo.title
+							document.querySelector("#hubbleSubTitle").innerHTML = photo.date								
+							document.querySelector("#hubbleInfo").innerHTML = photo.info.slice(0, Math.min(500, photo.info.length)).concat("....")
+							console.log("Hubble photo loaded")					
+						})
+						.catch(err => {
+							console.log(`error ${err}`)
+						})
 					}else{
 						//everything else
 						console.log("everything else")
