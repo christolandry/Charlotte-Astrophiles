@@ -12,12 +12,14 @@
 <p>A small collection of daily astronomical data related to Charlotte</p>
 
 <h3>APIs Used</h3>
-- [NASA - Astronomy Picture of the Day](https://api.nasa.gov/)
-- [NASA - Mars Rover Photos](https://api.nasa.gov/)
-- [Mars' Weather](https://maas2.apollorion.com)
-- [Hubble Telescope Images](https://github.com/Spectre-ak/api-hubblesite)
-- [Charlotte Astronomical Data](https://ipgeolocation.io/documentation/astronomy-api.html)
+<ul>
+    <li>[NASA - Astronomy Picture of the Day](https://api.nasa.gov/)</li>
+    <li>[NASA - Mars Rover Photos](https://api.nasa.gov/)</li>
+    <li>[Mars' Weather](https://maas2.apollorion.com)</li>
+    <li>[Hubble Telescope Images](https://github.com/Spectre-ak/api-hubblesite)</li>
+    <li>[Charlotte Astronomical Data](https://ipgeolocation.io/documentation/astronomy-api.html)</li>
+<ul>
 
-Template:
-Landed by HTML5 UP
-html5up.net | @ajlkn
+<p>Template:</p>
+<p>Landed by HTML5 UP</p>
+<p>[html5up.net](html5up.net) | @ajlkn </p>
