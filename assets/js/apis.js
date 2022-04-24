@@ -50,51 +50,51 @@ function pictureRefresh(pic){
             var $this = $(this),
                 on;
 
-            on = function() {         
+                     
                 
-                document.querySelector(`#${pic}Title`).innerHTML = "Loading new photo...."
-                document.querySelector(`#${pic}SubTitle`).innerHTML = ""
-                if(pic === "hubble") document.querySelector(`#hubbleInfo`).innerHTML = ""
-                
-                if($this.find('.image.main > img#marsPic').length && pic === "mars"){
-                    //element two ------Picures of Mars from Curiosity--------
-                    fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI")
-                    .then(res => res.json())
-                    .then (data => {
-                        let photo = data.photos[Math.floor(Math.random() * data.photos.length)]                       
-                        $this.css('background-image', 'url("' + photo.img_src + '")');
-                        document.querySelector("#marsTitle").innerHTML = `A shot of Mars from the ${photo.rover.name} rover`
-                        document.querySelector("#marsSubTitle").innerHTML = `This photo as taken on ${photo.earth_date} from the ${photo.camera.full_name}`
-                        console.log("Mars Picture Refreshed")
-                    })
-                    .catch(err => {
-                        console.log(`error ${err}`)
-                    })
-                }else if($this.find('.image.main > img#hubblePic').length && pic === "hubble"){
-                    //element three ------Hubble Telescope keyword: nebula--------
-                    fetch(`https://hubblesite.azurewebsites.net/images/tags/nebula`)
-                    .then(res => res.json())
-                    .then (data => {       
-                        let photo = 0, maxRes = 0, i = 0;
-                        while(maxRes < 2000){
-                            photo = data[Math.floor(Math.random() * data.length)]     
-                            for (i = 0; i < photo.imgWithRes.length; i++){
-                                if(photo.imgWithRes[i][1].split(" ")[0] >= 2000) maxRes = photo.imgWithRes[i][1].split(" ")[0]
-                                break
-                            }
-                            $this.css('background-image', 'url("' + photo.imgWithRes[i][0] + '")');
-                            document.querySelector("#hubbleTitle").innerHTML = photo.title
-                            document.querySelector("#hubbleSubTitle").innerHTML = photo.date
-                            document.querySelector("#hubbleInfo").innerHTML = photo.info.slice(0, Math.min(400, photo.info.length)).concat("....")
-                            document.querySelector("#hubbleCompleteInfo").innerHTML = photo.info
-                            console.log("Nebula Picture Refreshed")              
+            document.querySelector(`#${pic}Title`).innerHTML = "Loading new photo...."
+            document.querySelector(`#${pic}SubTitle`).innerHTML = ""
+            if(pic === "hubble") document.querySelector(`#hubbleInfo`).innerHTML = ""
+            
+            if($this.find('.image.main > img#marsPic').length && pic === "mars"){
+                //element two ------Picures of Mars from Curiosity--------
+                fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI")
+                .then(res => res.json())
+                .then (data => {
+                    let photo = data.photos[Math.floor(Math.random() * data.photos.length)]                       
+                    $this.css('background-image', 'url("' + photo.img_src + '")');
+                    document.querySelector("#marsPic").src = photo.img_src 
+                    document.querySelector("#marsTitle").innerHTML = `A shot of Mars from the ${photo.rover.name} rover`
+                    document.querySelector("#marsSubTitle").innerHTML = `This photo as taken on ${photo.earth_date} from the ${photo.camera.full_name}`
+                    console.log("Mars Picture Refreshed")
+                })
+                .catch(err => {
+                    console.log(`error ${err}`)
+                })
+            }else if($this.find('.image.main > img#hubblePic').length && pic === "hubble"){
+                //element three ------Hubble Telescope keyword: nebula--------
+                fetch(`https://hubblesite.azurewebsites.net/images/tags/nebula`)
+                .then(res => res.json())
+                .then (data => {       
+                    let photo = 0, maxRes = 0, i = 0;
+                    while(maxRes < 2000){
+                        photo = data[Math.floor(Math.random() * data.length)]     
+                        for (i = 0; i < photo.imgWithRes.length; i++){
+                            if(photo.imgWithRes[i][1].split(" ")[0] >= 2000) maxRes = photo.imgWithRes[i][1].split(" ")[0]
+                            break
                         }
-                    })
-                    .catch(err => {
-                        console.log(`error ${err}`)
-                    })
-                }
-            };
-            breakpoints.on('>medium', on);
+                        $this.css('background-image', 'url("' + photo.imgWithRes[i][0] + '")');
+                        document.querySelector("#hubblePic").src = photo.imgWithRes[i][0]
+                        document.querySelector("#hubbleTitle").innerHTML = photo.title
+                        document.querySelector("#hubbleSubTitle").innerHTML = photo.date
+                        document.querySelector("#hubbleInfo").innerHTML = photo.info.slice(0, Math.min(400, photo.info.length)).concat("....")
+                        document.querySelector("#hubbleCompleteInfo").innerHTML = photo.info
+                        console.log("Nebula Picture Refreshed")              
+                    }
+                })
+                .catch(err => {
+                    console.log(`error ${err}`)
+                })
+            }
         });
 }

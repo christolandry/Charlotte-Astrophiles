@@ -1,35 +1,23 @@
+<h1>Charlotte Astrophiles</h1>
+
+<p>This page makes use of multiple APIs to provide selection of astronomical images and information.</p>
+
+<h6>NASA Astronomy Picture of the Day</h6>
+<p>This displays the image, title and description for the day's selection.</p>
+<h6>Mars Section</h6>
+<p>An image from the current NASA Mars rover, Curiosity, is displayed along with descriptors.  Some images are blurry, so a button to refresh the picture is added.  Underneath is the weather information, relayed by Curiosity, about the latest sol on Mars.</p>
+<h6>Hubble Telescope Image</h6>
+<p>An image with the tag of Nebula is shown as the main feature along with the title, release time and related information.</p>
+<h6>Charlotte Data</h6>
+<p>A small collection of daily astronomical data related to Charlotte</p>
+
+<h3>APIs Used</h3>
+- [NASA - Astronomy Picture of the Day](https://api.nasa.gov/)
+- [NASA - Mars Rover Photos](https://api.nasa.gov/)
+- [Mars' Weather](https://maas2.apollorion.com)
+- [Hubble Telescope Images](https://github.com/Spectre-ak/api-hubblesite)
+- [Charlotte Astronomical Data](https://ipgeolocation.io/documentation/astronomy-api.html)
+
+Template:
 Landed by HTML5 UP
 html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-
-
-A dark, slick, modern, responsive, adjective-drenched design built around an extremely
-dynamic landing page (scroll that mofo!). Inspired by Big Picture, another design
-of mine with a similarish feel/flow, only this time I took it waaaaaay further and
-actually made it multipurpose (versus copping out and making it a one pager like I
-did last time ;) Includes multiple pages, a bunch of pre-styled elements, and all
-its Sass sources.
-
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
-
-(* = Not included)
-
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
-
-AJ
-aj@lkn.io | @ajlkn
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
