@@ -85,7 +85,8 @@ function pictureRefresh(pic){
                             $this.css('background-image', 'url("' + photo.imgWithRes[i][0] + '")');
                             document.querySelector("#hubbleTitle").innerHTML = photo.title
                             document.querySelector("#hubbleSubTitle").innerHTML = photo.date
-                            document.querySelector("#hubbleInfo").innerHTML = photo.info.slice(0, Math.min(500, photo.info.length)).concat("....")
+                            document.querySelector("#hubbleInfo").innerHTML = photo.info.slice(0, Math.min(400, photo.info.length)).concat("....")
+                            document.querySelector("#hubbleCompleteInfo").innerHTML = photo.info
                             console.log("Nebula Picture Refreshed")              
                         }
                     })

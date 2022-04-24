@@ -23,6 +23,17 @@
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
+
+			//More information for hubble picture
+			$(".trigger_popup_fricc").click(function(){
+				$('.hover_bkgr_fricc').show();
+			 });
+			 $('.hover_bkgr_fricc').click(function(){
+				 $('.hover_bkgr_fricc').hide();
+			 });
+			 $('.popupCloseButton').click(function(){
+				 $('.hover_bkgr_fricc').hide();
+			 });
 		});
 
 	// Touch mode.
@@ -205,7 +216,8 @@
 							$this.css('background-image', 'url("' + photo.imgWithRes[i][0] + '")');
 							document.querySelector("#hubbleTitle").innerHTML = photo.title
 							document.querySelector("#hubbleSubTitle").innerHTML = photo.date								
-							document.querySelector("#hubbleInfo").innerHTML = photo.info.slice(0, Math.min(500, photo.info.length)).concat("....")
+							document.querySelector("#hubbleInfo").innerHTML = photo.info.slice(0, Math.min(400, photo.info.length)).concat("....")
+							document.querySelector("#hubbleCompleteInfo").innerHTML = photo.info
 							console.log("Hubble photo loaded")					
 						})
 						.catch(err => {
