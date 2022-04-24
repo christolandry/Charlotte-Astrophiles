@@ -156,7 +156,7 @@
 					if($this.find('.image.main > img#apodPic').length && !loaded[0]){
 						loaded[0] = true
 						//element one ----------nasa astronomy picture of the day---------
-						console.log("element one")
+						console.log("NASA APOD called")
 						fetch("https://api.nasa.gov/planetary/apod?api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI")
 						.then(res => res.json())
 						.then (data => {
@@ -171,7 +171,7 @@
 					}else if($this.find('.image.main > img#marsPic').length && !loaded[1]){
 						loaded[1] = true
 						//element two ------Picures of Mars from Curiosity--------
-						console.log("element two")
+						console.log("Mars photo called")
 						fetch("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI")
 						.then(res => res.json())
 						.then (data => {
@@ -184,10 +184,10 @@
 						.catch(err => {
 							console.log(`error ${err}`)
 						})
-					}else if($this.find('.image.main > img#hubble').length && !loaded[2]){
+					}else if($this.find('.image.main > img#hubblePic').length && !loaded[2]){
 						loaded[2] = true
 						//element three ------Hubble Telescope keyword: nebula--------
-						console.log("element three")
+						console.log("Hubble photo called")
 						fetch(`https://hubblesite.azurewebsites.net/images/tags/nebula`)
 						.then(res => res.json())
 						.then (data => {       
@@ -215,8 +215,8 @@
 						//everything else
 						//for some reason this function is called twice for each spotlight class.  Since I have prevented the API calls being made
 						//twice this will get hit three times from the avoided duplicate API calls.  It doesn't do anything.
-						console.log("everything else") 
-						$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');
+						//console.log("everything else") 
+						//$this.css('background-image', 'url("' + $this.find('.image.main > img').attr('src') + '")');
 					}
 
 					// Side-specific scrollex tweaks.
