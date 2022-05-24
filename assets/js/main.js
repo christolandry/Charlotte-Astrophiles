@@ -164,7 +164,7 @@
 					loaded[0] = true
 					//element one ----------nasa astronomy picture of the day---------
 					console.log("NASA APOD called")
-					fetch("https://api.nasa.gov/planetary/apod?api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI")
+					fetch(`https://api.nasa.gov/planetary/apod?api_key=KtlSFp9zsFZPcR50w1UX0I3D1bWz0xf1yC2gZTgI&date=2022-04-23`)
 					.then(res => res.json())
 					.then (data => {
 						$this.css('background-image', 'url("' + data.hdurl + '")');
