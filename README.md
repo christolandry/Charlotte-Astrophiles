@@ -3,7 +3,7 @@
 This page makes use of multiple APIs to provide selection of astronomical images and information that is updated daily and/or randomly on demand.
 
 **Link to project:** [http://recruiters-love-seeing-live-demos.com/](https://charlotteastrophiles.netlify.app/)
-![alt tag](https://charlotteastrophiles.netlify.app/images/charlotteAstrophiles.gif)
+![alt tag](images/charlotteAstrophiles.gif)
 
 ## How It's Made:
 
