@@ -33,4 +33,12 @@ This was my exploration into API's, specifically with images and their associate
 ## Examples:
 Take a look at these couple examples that I have in my own portfolio:
 
-**Palettable:** https://github.com/alecortega/palettable
+**Portfolio Page:** https://github.com/christolandry/Portfolio
+
+**Happy Tails Dog Grooming:** https://github.com/christolandry/Happy-Tails
+
+**Ascent Running Camp:** https://AscentRunningCamp.com
+
+**Professional Runner (retired):** https://ChristoLandry.com
+
+**Ascent Running Coaching:** https://AscentRunningCoaching.com
